@@ -1,6 +1,4 @@
 // Copyright 2022 NNTU-CS
-#include "tree.h"
-
 #include <algorithm>
 #include <cstdlib>
 #include <fstream>
@@ -8,6 +6,7 @@
 #include <locale>
 #include <vector>
 
+#include "tree.h"
 std::vector<std::vector<char>> PMTree::getAllPerms() {
     std::vector<std::vector<char>> result;
     std::vector<char> current;
