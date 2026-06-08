@@ -1,8 +1,10 @@
 // Copyright 2022 NNTU-CS
 #include "tree.h"
+
 #include <iostream>
 #include <chrono>
 #include <random>
+#include <vector>
 
 int main() {
     std::vector<char> in = {'1', '2', '3'};
@@ -40,7 +42,7 @@ int main() {
         auto start = std::chrono::high_resolution_clock::now();
         myTree.getAllPerms();
         auto end = std::chrono::high_resolution_clock::now();
-        long long t1 = std::chrono::duration_cast<
+        int64_t t1 = std::chrono::duration_cast<
             std::chrono::microseconds>(end - start).count();
 
         int fact = 1;
@@ -54,13 +56,13 @@ int main() {
         start = std::chrono::high_resolution_clock::now();
         myTree.getPerm1(rnum);
         end = std::chrono::high_resolution_clock::now();
-        long long t2 = std::chrono::duration_cast<
+        int64_t t2 = std::chrono::duration_cast<
             std::chrono::microseconds>(end - start).count();
 
         start = std::chrono::high_resolution_clock::now();
         myTree.getPerm2(rnum);
         end = std::chrono::high_resolution_clock::now();
-        long long t3 = std::chrono::duration_cast<
+        int64_t t3 = std::chrono::duration_cast<
             std::chrono::microseconds>(end - start).count();
 
         std::cout << n << "\t" << t1 << "\t\t" << t2 << "\t\t" << t3
