@@ -134,3 +134,14 @@ std::vector<char> PMTree::getPerm2(int num) {
     }
     return result;
 }
+std::vector<std::vector<char>> getAllPerms(PMTree& tree) {
+    return tree.getAllPerms();
+}
+
+std::vector<char> getPerm1(PMTree& tree, int num) {
+    return tree.getPerm1(num);
+}
+
+std::vector<char> getPerm2(PMTree& tree, int num) {
+    return tree.getPerm2(num);
+}
