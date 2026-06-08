@@ -123,8 +123,8 @@ std::vector<char> PMTree::getPerm2(int num) {
     Node* current = root;
 
     while (current != nullptr && !current->children.empty()) {
-        for (size_t i = 0; i < current->children.size(); ++i) {
-            Node* child = current->children[i];
+        // Идем по детям в порядке возрастания (уже отсортированы)
+        for (Node* child : current->children) {
             int cnt = countPermutations(child);
             if (num <= cnt) {
                 result.push_back(child->value);
