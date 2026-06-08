@@ -8,7 +8,7 @@
 
 #include "tree.h"
 
-
+Node::~Node() {
     for (Node* child : children) {
         delete child;
     }
