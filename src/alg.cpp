@@ -1,11 +1,11 @@
 // Copyright 2022 NNTU-CS
-#include  "tree.h"
+#include "tree.h"
 
-#include  <iostream>
-#include  <fstream>
-#include  <locale>
-#include  <cstdlib>
 #include <algorithm>
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <locale>
 #include <vector>
 
 std::vector<std::vector<char>> PMTree::getAllPerms() {
