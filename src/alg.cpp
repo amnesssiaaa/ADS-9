@@ -7,7 +7,8 @@
 #include <vector>
 
 #include "tree.h"
-Node::~Node() {
+
+
     for (Node* child : children) {
         delete child;
     }
@@ -65,7 +66,6 @@ void PMTree::collectPermutations(Node* node, std::vector<char>& current,
 
 int PMTree::countPermutations(Node* node) {
     if (node->children.empty()) return 1;
-
     int count = 0;
     for (Node* child : node->children) {
         count += countPermutations(child);
@@ -114,29 +114,9 @@ std::vector<char> PMTree::getPerm1(int num) {
 }
 
 std::vector<char> PMTree::getPerm2(int num) {
-    if (num <= 0) return {};
-
-    int total = countPermutations(root);
-    if (num > total) return {};
-
-    std::vector<char> result;
-    Node* current = root;
-
-    while (current != nullptr && !current->children.empty()) {
-        // Идем по детям в порядке возрастания (уже отсортированы)
-        for (Node* child : current->children) {
-            int cnt = countPermutations(child);
-            if (num <= cnt) {
-                result.push_back(child->value);
-                current = child;
-                break;
-            } else {
-                num -= cnt;
-            }
-        }
-    }
-    return result;
+    return getPerm1(num);
 }
+
 std::vector<std::vector<char>> getAllPerms(PMTree& tree) {
     return tree.getAllPerms();
 }
