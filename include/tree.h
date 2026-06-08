@@ -6,29 +6,34 @@
 struct Node {
     char value;
     std::vector<Node*> children;
-    std::vector<char> neighbors;     
-    
-    Node(char val) : value(val) {}
+    std::vector<char> neighbors;
+
+    explicit Node(char val) : value(val) {}
     ~Node();
 };
 
 class PMTree {
-private:
+ private:
     Node* root;
     std::vector<char> initialElements;
+
     void buildTree(Node* node, std::vector<char> remaining);
-    void collectPermutations(Node* node, std::vector<char>& current, 
+    void collectPermutations(Node* node, std::vector<char>& current,
                               std::vector<std::vector<char>>& result);
     int countPermutations(Node* node);
-    void getPermByOrder(Node* node, int& counter, int target, 
+    void getPermByOrder(Node* node, int& counter, int target,
                         std::vector<char>& result, bool& found);
-public:
-    PMTree(const std::vector<char>& elements);
+
+ public:
+    explicit PMTree(const std::vector<char>& elements);
     ~PMTree();
+
     Node* getRoot() const;
     std::vector<char> getInitialElements() const;
+
     std::vector<std::vector<char>> getAllPerms();
     std::vector<char> getPerm1(int num);
     std::vector<char> getPerm2(int num);
 };
+
 #endif  // INCLUDE_TREE_H_
